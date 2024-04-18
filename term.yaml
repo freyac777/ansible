@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  become: false
+  tasks:
+    - name: Terminate  spot
+      amazon.aws.ec2_instance:
+        state: absent
+        spot_intance_request_ids: sir-xw1et48p
+
+
+
+    - name: Terminate  instance 
+      amazon.aws.ec2_instance:
+        state: absent
+        instance_ids: i-086e5fde274a7903e
+      

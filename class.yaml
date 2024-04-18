@@ -8,7 +8,6 @@
       copy:
         src: "~/tmp/test.sh"
         dest: "/tmp/"
-      mod
       notify: 
        - chage name
   handlers:
