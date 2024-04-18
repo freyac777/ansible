@@ -1,1 +1,18 @@
+- name: Test handlers
+  hosts: hw-ubuntu
+  remote_user: ubuntu
+  become: yes
+  tasks:
+    - name: Copy test.sh to remote host
+      copy:
+        src: ~/tmp/test.sh
+        dest: /tmp/
+      notify: print message
 
+handlers:
+    - name: print message
+      ansible.builtin.debug:
+      local_action:
+        module: lineinfile
+        path: "/tmp/test.sh"
+        line: "julia {{ yulia }}"

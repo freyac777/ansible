@@ -1,0 +1,19 @@
+---
+- name: Play to copy test
+  hosts: hw-ubuntu
+  remote_user: ubuntu
+  become: yes
+  tasks:
+    - name: Copy test.sh
+      copy:
+        src: "~/tmp/test.sh"
+        dest: "/tmp/"
+      mod
+      notify: 
+       - chage name
+  handlers:
+   - name: chage name
+     apt:
+        name: mc
+        state: lastest
+   

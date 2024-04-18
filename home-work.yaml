@@ -1,0 +1,25 @@
+---
+- name: Install and start Ubuntu packages
+  hosts: hw-ubuntu
+  remote_user: ubuntu
+  become: yes
+  tasks:
+    - name: Install Ubuntu packages
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - nginx
+        - python3-pip
+        - postgresql
+        - git
+        - docker
+
+    - name: Start services
+      service:
+        name: "{{ item }}"
+        state: started
+      loop:
+        - nginx
+        - postgresql
+    
