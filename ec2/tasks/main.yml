@@ -1,0 +1,3 @@
+---
+- import_tasks: create-ec2.yml
+- import_tasks: dlete-ec2.yml
