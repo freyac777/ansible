@@ -1,0 +1,3 @@
+---
+- import_tasks: launch-template.yml
+- import_tasks: terminate.yml
